@@ -1,0 +1,7 @@
+color "---"        yellow  default
+color date         yellow  default
+color graph-commit magenta default
+color diff-stat    yellow  default
+color "index "     default default
+
+bind generic g move-first-line
