@@ -1,0 +1,11 @@
+---
+- name: create ~/.config/git directory
+  file:
+    path: ~/.config/git
+    mode: 0755
+    state: directory
+
+- name: install gitconfig
+  copy:
+    src: config
+    dest: ~/.config/git/config
