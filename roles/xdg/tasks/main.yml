@@ -1,0 +1,6 @@
+---
+- name: create ~/.config directory
+  file:
+    path: ~/.config
+    mode: 0755
+    state: directory
