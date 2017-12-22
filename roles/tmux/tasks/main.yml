@@ -1,0 +1,11 @@
+---
+- name: create ~/.config/tmux directory
+  file:
+    path: ~/.config/tmux
+    mode: 0755
+    state: directory
+
+- name: install tmux.conf
+  copy:
+    src: tmux.conf
+    dest: ~/.config/tmux/tmux.conf
