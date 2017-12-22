@@ -1,0 +1,11 @@
+---
+- name: create ~/.config/tig directory
+  file:
+    path: ~/.config/tig
+    mode: 0755
+    state: directory
+
+- name: install tigconfig
+  copy:
+    src: config
+    dest: ~/.config/tig/config
