@@ -1,0 +1,11 @@
+---
+- name: create ~/.config/fontconfig directory
+  file:
+    path: ~/.config/fontconfig
+    mode: 0755
+    state: directory
+
+- name: install fonts.conf
+  copy:
+    src: fonts.conf
+    dest: ~/.config/fontconfig/fonts.conf

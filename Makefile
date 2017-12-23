@@ -10,3 +10,6 @@ prepare: .venv
 
 cmd:
 	ansible-playbook cmd.yml
+
+x:
+	ansible-playbook x.yml
