@@ -9,3 +9,8 @@
   copy:
     src: tmux.conf
     dest: ~/.config/tmux/tmux.conf
+
+- name: install .zshrc.d/tmux
+  copy:
+    src: zshrc.d/tmux
+    dest: ~/.config/zsh/.zshrc.d/tmux
