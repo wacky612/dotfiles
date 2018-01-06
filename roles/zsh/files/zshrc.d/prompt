@@ -1,0 +1,3 @@
+setopt prompt_subst
+PROMPT='%B[%F{yellow}%m%f:%F{green}%~%f]$vcs_info_msg_0_
+%(!.%F{red}.%F{cyan})%n%#%f%b '
