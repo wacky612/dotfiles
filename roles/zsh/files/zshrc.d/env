@@ -1,0 +1,4 @@
+export LC_COLLATE=C
+export LANG=en_US.UTF-8
+export PS_FORMAT="uname,pid,%cpu,%mem,nice,rss:7,bsdstart,args"
+export LESSOPEN='| /usr/bin/src-hilite-lesspipe.sh %s'

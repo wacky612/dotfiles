@@ -1,0 +1,6 @@
+HISTFILE="$XDG_CONFIG_HOME/zsh/.zsh_history"
+HISTSIZE=1000
+SAVEHIST=10000
+setopt hist_reduce_blanks
+setopt hist_ignore_space
+setopt hist_ignore_all_dups

@@ -1,0 +1,29 @@
+---
+- name: create ~/.config/zsh directory
+  file:
+    path: ~/.config/zsh
+    mode: 0755
+    state: directory
+
+- name: create ~/.config/zsh/.zshrc.d directory
+  file:
+    path: ~/.config/zsh/.zshrc.d
+    mode: 0755
+    state: directory
+
+- name: install zsh config files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: zshenv, dest: ~/.zshenv }
+    - { src: zprofile, dest: ~/.config/zsh/.zprofile }
+    - { src: zshrc, dest: ~/.config/zsh/.zshrc }
+    - { src: zshrc.d/alias, dest: ~/.config/zsh/.zshrc.d/alias }
+    - { src: zshrc.d/colors, dest: ~/.config/zsh/.zshrc.d/colors }
+    - { src: zshrc.d/completion, dest: ~/.config/zsh/.zshrc.d/completion }
+    - { src: zshrc.d/env, dest: ~/.config/zsh/.zshrc.d/env }
+    - { src: zshrc.d/history, dest: ~/.config/zsh/.zshrc.d/history }
+    - { src: zshrc.d/keybind, dest: ~/.config/zsh/.zshrc.d/keybind }
+    - { src: zshrc.d/path, dest: ~/.config/zsh/.zshrc.d/path }
+    - { src: zshrc.d/prompt, dest: ~/.config/zsh/.zshrc.d/prompt }
