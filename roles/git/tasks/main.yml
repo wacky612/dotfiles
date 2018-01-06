@@ -9,3 +9,8 @@
   copy:
     src: config
     dest: ~/.config/git/config
+
+- name: install .zshrc.d/git
+  copy:
+    src: zshrc.d/git
+    dest: ~/.config/zsh/.zshrc.d/git

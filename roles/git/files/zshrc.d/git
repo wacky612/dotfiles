@@ -1,0 +1,40 @@
+autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd vcs_info
+zstyle ':vcs_info:*' formats ' %F{magenta}(%s)-[%b]%f%F{green}%c%f%F{red}%u%f%m'
+zstyle ':vcs_info:*' actionformats ' %F{magenta}(%s)-[%b|%a]%f%F{green}%c%f%F{red}%u%f%m'
+zstyle ':vcs_info:git:*' patch-format ' %p'
+zstyle ':vcs_info:git+set-message:*' hooks git-status
+
+function +vi-git-status() {
+    if [ $(git rev-parse --is-inside-work-tree) = 'true' ]; then
+        local git_status=$(git status --porcelain)
+        local -A staged_regex=('modified' '^M[ MD]' 'added'  '^A[ MD]' 'deleted' '^D[ M]'
+                               'renamed'  '^R[ MD]' 'copied' '^C[ MD]')
+        local -A unstaged_regex=('modified'  '^[ MARC]M'
+                                 'deleted'   '^[ MARC]D'
+                                 'unmerged'  '^DD\|^AU\|^UD\|^UA\|^DU\|^AA\|^UU'
+                                 'untracked' '^??')
+        local key
+        local count
+
+        for key in ${(k)staged_regex}; do
+            count=$(echo $git_status | grep -c $staged_regex[$key])
+            if [ $count -gt 0 ]; then
+                hook_com[staged]+=" $key=$count"
+            fi
+        done
+
+        for key in ${(k)unstaged_regex}; do
+            count=$(echo $git_status | grep -c $unstaged_regex[$key])
+            if [ $count -gt 0 ]; then
+                hook_com[unstaged]+=" $key=$count"
+            fi
+        done
+
+        local stash=$(git stash list 2>/dev/null | wc -l)
+        if [ $stash -gt 0 ]; then
+            hook_com[misc]=" %F{yellow}stash=$stash%f$hook_com[misc]"
+        fi
+    fi
+}
