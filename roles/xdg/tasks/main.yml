@@ -4,3 +4,8 @@
     path: ~/.config
     mode: 0755
     state: directory
+
+- name: install ~/.profile
+  copy:
+    src: profile
+    dest: ~/.profile
