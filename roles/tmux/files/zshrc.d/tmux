@@ -1,1 +1,6 @@
-alias tmux="tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+function tmux() {
+  if [ -z $TMUX ]; then
+    ln -sf $SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent
+  fi
+  SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent /usr/bin/tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf $@
+}
