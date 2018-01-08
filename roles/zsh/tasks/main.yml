@@ -16,6 +16,7 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
+    - { src: dircolors, dest: ~/.config/dircolors }
     - { src: zshenv, dest: ~/.zshenv }
     - { src: zprofile, dest: ~/.config/zsh/.zprofile }
     - { src: zshrc, dest: ~/.config/zsh/.zshrc }
