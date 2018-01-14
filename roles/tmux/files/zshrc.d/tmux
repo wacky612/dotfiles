@@ -1,6 +1,6 @@
 function tmux() {
   if [ -z $TMUX ]; then
-    ln -sf $SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent
+    ln -sf $SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.tmux
   fi
-  SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent /usr/bin/tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf $@
+  SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.tmux /usr/bin/tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf $@
 }
