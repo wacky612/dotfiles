@@ -1,9 +1,14 @@
 ---
-- name: create ~/.config directory
+- name: create xdg base directory
   file:
-    path: ~/.config
+    path: "{{ item }}"
     mode: 0755
     state: directory
+  with_items:
+    - '~/.config'
+    - '~/.cache'
+    - '~/.local'
+    - '~/.local/share'
 
 - name: install ~/.profile
   copy:
