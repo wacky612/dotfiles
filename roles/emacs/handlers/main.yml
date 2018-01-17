@@ -1,0 +1,6 @@
+---
+- name: restart emacs
+  systemd:
+    name: emacs
+    user: yes
+    state: restarted

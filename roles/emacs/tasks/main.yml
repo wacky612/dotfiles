@@ -1,0 +1,28 @@
+---
+- name: create ~/.emacs.d directory
+  file:
+    path: ~/.emacs.d
+    mode: 0755
+    state: directory
+
+- name: install init.el
+  copy:
+    src: init.el
+    dest: ~/.emacs.d/init.el
+  notify: restart emacs
+
+- name: install .zshrc.d/emacs
+  copy:
+    src: zshrc.d/emacs
+    dest: ~/.config/zsh/.zshrc.d/emacs
+
+- name: install emacs service
+  copy:
+    src: systemd/emacs.service
+    dest: ~/.config/systemd/user/emacs.service
+
+- name: enable emacs service
+  systemd:
+    name: emacs
+    user: yes
+    enabled: yes
