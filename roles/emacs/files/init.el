@@ -9,6 +9,7 @@
 (package-install 'js2-mode)
 (package-install 'scss-mode)
 (package-install 'markdown-mode)
+(package-install 'lua-mode)
 
 (define-key global-map "\C-h" 'delete-backward-char)
 (setq make-backup-files nil)
