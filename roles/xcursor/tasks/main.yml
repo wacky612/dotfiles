@@ -1,0 +1,23 @@
+---
+- name: create ~/.icons/default directory
+  file:
+    path: "{{ item }}"
+    mode: 0755
+    state: directory
+  with_items:
+    - ~/.icons
+    - ~/.icons/default
+
+- name: modify ~/.icons/default/index.theme
+  ini_file:
+    path: ~/.icons/default/index.theme
+    section: icon theme
+    option: Inherits
+    value: Vanilla-DMZ
+
+- name: modify ~/.config/gtk-3.0/settings.ini
+  ini_file:
+    path: ~/.config/gtk-3.0/settings.ini
+    section: Settings
+    option: gtk-cursor-theme-name
+    value: Vanilla-DMZ
