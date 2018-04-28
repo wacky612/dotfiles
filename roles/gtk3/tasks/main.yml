@@ -1,0 +1,6 @@
+---
+- name: create ~/.config/gtk-3.0 directory
+  file:
+    path: ~/.config/gtk-3.0
+    mode: 0755
+    state: directory
