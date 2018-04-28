@@ -1,0 +1,6 @@
+---
+- name: create ~/.config/xresources directory
+  file:
+    path: ~/.config/xresources
+    mode: 0755
+    state: directory
