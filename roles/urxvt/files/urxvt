@@ -1,0 +1,44 @@
+! URxvt
+URxvt.font:        xft:Ricty:size=12:antialias=true
+URxvt.letterSpace: 0
+URxvt.scrollBar:   false
+URxvt.termName:    rxvt-256color
+
+URxvt.perl-ext-common:     clipboard,font-size
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger:  C-Up
+
+URxvt.foreground: snow
+URxvt.background: black
+
+! URxvt.black
+URxvt.color0:  black
+URxvt.color8:  dimgray
+
+! URxvt.red
+URxvt.color1:  lightcoral
+URxvt.color9:  red
+
+! URxvt.green
+URxvt.color2:  limegreen
+URxvt.color10: lime
+
+! URxvt.yellow
+URxvt.color3:  gold
+URxvt.color11: yellow
+
+! URxvt.blue
+URxvt.color4:  royalblue
+URxvt.color12: dodgerblue
+
+! URxvt.magenta
+URxvt.color5:  violet
+URxvt.color13: magenta
+
+! URxvt.cyan
+URxvt.color6:  darkturquoise
+URxvt.color14: cyan
+
+! URxvt.white
+URxvt.color7:  snow
+URxvt.color15: white

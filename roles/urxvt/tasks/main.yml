@@ -1,0 +1,5 @@
+---
+- name: install ~/.config/xresources/urxvt
+  copy:
+    src: urxvt
+    dest: ~/.config/xresources/urxvt
