@@ -9,3 +9,8 @@
   copy:
     src: fonts.conf
     dest: ~/.config/fontconfig/fonts.conf
+
+- name: install ~/.config/xresources/xft
+  copy:
+    src: xft
+    dest: ~/.config/xresources/xft
