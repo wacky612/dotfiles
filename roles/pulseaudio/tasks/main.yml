@@ -1,0 +1,6 @@
+---
+- name: enable pulseaudio service
+  systemd:
+    name: pulseaudio
+    user: yes
+    enabled: yes
