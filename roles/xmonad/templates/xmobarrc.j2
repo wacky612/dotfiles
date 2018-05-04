@@ -1,0 +1,42 @@
+Config { font = "xft:Ricty:size=12:antialias=true"
+       , bgColor = "black"
+       , fgColor = "snow"
+       , position = TopP 0 160
+       , overrideRedirect = False
+       , commands = [ Run Network "{{ ansible_default_ipv4.interface }}"
+                          [ "-L", "0"
+                          , "-H", "32"
+                          , "--normal", "green"
+                          , "--high"  , "red"
+                          ] 10
+                    , Run Cpu [ "-L", "3"
+                              , "-H", "50"
+                              , "--normal", "green"
+                              , "--high"  , "red"
+                              ] 10
+                    , Run CoreTemp [ "-t", "Temp: <core0>"
+                                   , "-L", "50"
+                                   , "-H", "75"
+                                   , "-l", "cyan"
+                                   , "-n", "yellow"
+                                   , "-h", "red"
+                                   ] 10
+                    , Run Memory ["-t", "Mem: <usedratio>%"] 10
+                    , Run Date "%Y/%m/%d %a %H:%M:%S" "date" 10
+                    , Run Com "uname" ["-s", "-r"] "" 36000
+                    , Run StdinReader
+{% if ansible_form_factor == "Notebook" %}
+                    , Run Battery [ "-t", "Bat: <left>% - <acstatus>"
+                                  , "-L", "20", "-H", "50"
+                                  , "-l", "red", "-n", "yellow", "-h", "green"
+                                  , "--"
+                                  , "-O", "<fc=yellow>ON</fc>"
+                                  , "-i", "<fc=green>IDLE</fc>"
+                                  , "-o", "<fc=red>OFF</fc>"
+                                  ] 600
+{% endif %}
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %uname% : %StdinReader% }{ %cpu% | %coretemp% | %memory% | %{{ ansible_default_ipv4.interface }}% {% if ansible_form_factor == "Notebook" %}| %battery% {% endif %}| %date% |"
+       }

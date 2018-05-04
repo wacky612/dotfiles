@@ -1,0 +1,5 @@
+---
+- name: recompile xmonad.hs
+  shell: rm -rf ~/.xmonad; xmonad --recompile
+  args:
+    warn: no

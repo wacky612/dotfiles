@@ -1,0 +1,24 @@
+---
+- name: create ~/.config/xmobar directory
+  file:
+    path: ~/.config/xmobar
+    mode: 0755
+    state: directory
+
+- name: install ~/.config/xmobar/xmobarrc
+  template:
+    src: xmobarrc.j2
+    dest: ~/.config/xmobar/xmobarrc
+
+- name: create ~/.config/xmonad directory
+  file:
+    path: ~/.config/xmonad
+    mode: 0755
+    state: directory
+
+- name: install ~/.config/xmonad/xmonad.hs
+  copy:
+    src: xmonad.hs
+    dest: ~/.config/xmonad/xmonad.hs
+  notify:
+    - recompile xmonad.hs
