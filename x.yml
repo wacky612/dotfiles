@@ -3,3 +3,7 @@
   connection: local
   roles:
     - fontconfig
+    - pulseaudio
+    - urxvt
+    - xcursor
+    - xmonad
