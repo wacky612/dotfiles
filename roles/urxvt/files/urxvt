@@ -1,6 +1,6 @@
 ! URxvt
 URxvt.font:        xft:Ricty:size=12:antialias=true
-URxvt.letterSpace: 0
+URxvt.letterSpace: -1
 URxvt.scrollBar:   false
 URxvt.termName:    rxvt-256color
 
