@@ -32,9 +32,9 @@ myStartupHook = do
   home <- io $ getEnv "HOME"
   xdgRuntimeDir <- io $ getEnv "XDG_RUNTIME_DIR"
   io $ setEnv "LANG" "ja_JP.UTF-8"
-  io $ setEnv "GTK_IM_MODULE" "uim"
-  io $ setEnv "QT_IM_MODULE" "uim"
-  io $ setEnv "XMODIFIERS" "@im=uim"
+  io $ setEnv "GTK_IM_MODULE" "ibus"
+  io $ setEnv "QT_IM_MODULE" "ibus"
+  io $ setEnv "XMODIFIERS" "@im=ibus"
   io $ setEnv "LPASS_AGENT_TIMEOUT" "0"
   spawnOnce "cat $XDG_CONFIG_HOME/xresources/* | xrdb"
   setDefaultCursor xC_left_ptr
@@ -42,8 +42,7 @@ myStartupHook = do
   spawnOnce "feh --no-fehbg --bg-scale \"$HOME/.wallpaper.png\""
   spawnOnce trayer
   spawnOnce "dunst"
-  spawnOnce "uim-xim"
-  spawnOnce "uim-toolbar-gtk-systray"
+  spawnOnce "ibus-daemon -drx"
   spawnOnce "pasystray"
   spawnOnce "light-locker"
     where
