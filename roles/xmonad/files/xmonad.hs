@@ -44,7 +44,7 @@ myStartupHook = do
   spawnOnce "dunst"
   spawnOnce "ibus-daemon -drx"
   spawnOnce "pasystray"
-  spawnOnce "light-locker"
+  spawnOnce "light-locker --lock-after-screensaver=0"
     where
       trayer = foldr1 join [ "trayer"            , "--edge top"
                            , "--align right"     , "--widthtype pixel"
