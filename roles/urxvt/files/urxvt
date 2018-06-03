@@ -5,6 +5,7 @@ URxvt.scrollBar:   false
 URxvt.termName:    rxvt-256color
 
 URxvt.perl-ext-common:     clipboard,font-size
+URxvt.clipboard.autocopy:  true
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger:  C-Up
 
