@@ -12,5 +12,5 @@
 - name: enable ssh-agent service
   systemd:
     name: ssh-agent
-    user: yes
+    scope: user
     enabled: yes
