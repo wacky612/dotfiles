@@ -69,6 +69,9 @@ main = do
   xmonad $ ewmh $ additionalKeysP xConfig [ ("M-p"  , spawn "dmenu_run -fn \"Ricty-12\"")
                                           , ("M-S-l", spawn "dm-tool lock")
                                           , ("M-S-/", spawn xprop)
+                                          , ("<Print>"   , spawn "sleep 0.2; scrot")
+                                          , ("M1-<Print>", spawn "sleep 0.2; scrot --focused")
+                                          , ("S-<Print>" , spawn "sleep 0.2; scrot --select")
                                           ]
     where
       xprop = foldr1 join [ "notify-send WM_CLASS \"$(xprop | grep WM_CLASS)\""
