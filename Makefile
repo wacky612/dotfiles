@@ -9,7 +9,7 @@ prepare: .venv
 	pip install ansible
 
 cmd:
-	ansible-playbook cmd.yml
+	ansible-playbook --diff cmd.yml
 
 x:
-	ansible-playbook x.yml
+	ansible-playbook --diff x.yml
