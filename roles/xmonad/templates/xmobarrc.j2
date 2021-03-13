@@ -27,6 +27,9 @@ Config { font = "xft:Ricty:size=12:antialias=true"
                     , Run Memory [ "--template", "Mem: <usedratio>%"
                                  , "--ppad"    , "3"
                                  ] 10
+                    , Run Volume "default" "Master" [ "--template", "<action=`LANG=ja_JP.UTF-8 pavucontrol`>Vol: <volume>%</action>"
+                                                    , "--ppad", "3"
+                                                    ] 10
                     , Run Date "%Y/%m/%d %a %H:%M:%S" "date" 10
                     , Run Com "uname" ["-s", "-r"] "" 36000
                     , Run StdinReader
@@ -43,5 +46,5 @@ Config { font = "xft:Ricty:size=12:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %uname% : %StdinReader% }{ %cpu% | %multicoretemp% | %memory% | %dynnetwork% {% if ansible_form_factor == "Notebook" %}| %battery% {% endif %}| %date% "
+       , template = " %uname% : %StdinReader% }{ %cpu% | %multicoretemp% | %memory% | %dynnetwork% | %default:Master% {% if ansible_form_factor == "Notebook" %}| %battery% {% endif %}| %date% "
        }
