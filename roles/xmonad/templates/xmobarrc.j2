@@ -1,27 +1,32 @@
 Config { font = "xft:Ricty:size=12:antialias=true"
        , bgColor = "black"
        , fgColor = "snow"
-       , position = TopP 0 160
+       , position = Top
        , overrideRedirect = False
-       , commands = [ Run Network "{{ ansible_default_ipv4.interface }}"
-                          [ "-L", "0"
-                          , "-H", "32"
-                          , "--normal", "green"
-                          , "--high"  , "red"
-                          ] 10
-                    , Run Cpu [ "-L", "3"
-                              , "-H", "50"
-                              , "--normal", "green"
+       , commands = [ Run DynNetwork [ "--template", "Net: <rx>|<tx>"
+                                     , "--suffix"  , "True"
+                                     , "--minwidth", "7"
+                                     , "--Low"     , "5000000"
+                                     , "--High"    , "10000000"
+                                     , "--normal"  , "yellow"
+                                     , "--high"    , "red"
+                                     ] 10
+                    , Run Cpu [ "--ppad"  , "3"
+                              , "--Low"   , "50"
+                              , "--High"  , "80"
+                              , "--normal", "yellow"
                               , "--high"  , "red"
                               ] 10
-                    , Run CoreTemp [ "-t", "Temp: <core0>"
-                                   , "-L", "50"
-                                   , "-H", "75"
-                                   , "-l", "cyan"
-                                   , "-n", "yellow"
-                                   , "-h", "red"
-                                   ] 10
-                    , Run Memory ["-t", "Mem: <usedratio>%"] 10
+                    , Run MultiCoreTemp [ "--template", "Temp: <avg>"
+                                        , "--Low"     , "40"
+                                        , "--High"    , "70"
+                                        , "--low"     , "cyan"
+                                        , "--normal"  , "yellow"
+                                        , "--high"    , "red"
+                                        ] 10
+                    , Run Memory [ "--template", "Mem: <usedratio>%"
+                                 , "--ppad"    , "3"
+                                 ] 10
                     , Run Date "%Y/%m/%d %a %H:%M:%S" "date" 10
                     , Run Com "uname" ["-s", "-r"] "" 36000
                     , Run StdinReader
@@ -38,5 +43,5 @@ Config { font = "xft:Ricty:size=12:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %uname% : %StdinReader% }{ %cpu% | %coretemp% | %memory% | %{{ ansible_default_ipv4.interface }}% {% if ansible_form_factor == "Notebook" %}| %battery% {% endif %}| %date% |"
+       , template = " %uname% : %StdinReader% }{ %cpu% | %multicoretemp% | %memory% | %dynnetwork% {% if ansible_form_factor == "Notebook" %}| %battery% {% endif %}| %date% "
        }

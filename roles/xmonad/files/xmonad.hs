@@ -40,18 +40,9 @@ myStartupHook = do
   setDefaultCursor xC_left_ptr
   spawnOnce "xset -b; xset -dpms; xset s off"
   spawnOnce "feh --no-fehbg --bg-scale \"$HOME/.wallpaper.png\""
-  spawnOnce trayer
   spawnOnce "dunst"
   spawnOnce "ibus-daemon -drx"
-  spawnOnce "pasystray"
   spawnOnce "light-locker --lock-after-screensaver=0"
-    where
-      trayer = foldr1 join [ "trayer"            , "--edge top"
-                           , "--align right"     , "--widthtype pixel"
-                           , "--width 160"       , "--height 22"
-                           , "--transparent true", "--alpha 0"
-                           , "--tint 0x000000"
-                           ]
 
 main = do
   xConfig <- xmobar def { terminal           = "urxvt"
