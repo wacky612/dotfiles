@@ -1,3 +1,5 @@
+set line-graphics = ascii
+
 color "---"        yellow  default
 color date         yellow  default
 color graph-commit magenta default
