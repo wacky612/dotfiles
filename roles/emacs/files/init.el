@@ -11,6 +11,7 @@
 (package-install 'markdown-mode)
 (package-install 'lua-mode)
 
+(set-language-environment "Japanese")
 (define-key global-map "\C-h" 'delete-backward-char)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
