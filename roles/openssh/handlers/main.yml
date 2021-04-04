@@ -2,5 +2,5 @@
 - name: restart ssh-agent
   systemd:
     name: ssh-anget
-    user: yes
+    scope: user
     state: restarted

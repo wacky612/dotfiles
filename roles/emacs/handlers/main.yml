@@ -2,5 +2,5 @@
 - name: restart emacs
   systemd:
     name: emacs
-    user: yes
+    scope: user
     state: restarted
