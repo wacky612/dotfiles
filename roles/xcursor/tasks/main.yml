@@ -13,11 +13,11 @@
     path: ~/.icons/default/index.theme
     section: icon theme
     option: Inherits
-    value: Vanilla-DMZ
+    value: DMZ-White
 
 - name: modify ~/.config/gtk-3.0/settings.ini
   ini_file:
     path: ~/.config/gtk-3.0/settings.ini
     section: Settings
     option: gtk-cursor-theme-name
-    value: Vanilla-DMZ
+    value: DMZ-White
