@@ -23,6 +23,7 @@
     - { src: zshrc.d/alias, dest: ~/.config/zsh/.zshrc.d/alias }
     - { src: zshrc.d/colors, dest: ~/.config/zsh/.zshrc.d/colors }
     - { src: zshrc.d/completion, dest: ~/.config/zsh/.zshrc.d/completion }
+    - { src: zshrc.d/direnv, dest: ~/.config/zsh/.zshrc.d/direnv }
     - { src: zshrc.d/env, dest: ~/.config/zsh/.zshrc.d/env }
     - { src: zshrc.d/history, dest: ~/.config/zsh/.zshrc.d/history }
     - { src: zshrc.d/keybind, dest: ~/.config/zsh/.zshrc.d/keybind }
