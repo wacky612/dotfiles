@@ -4,10 +4,11 @@ URxvt.letterSpace: -1
 URxvt.scrollBar:   false
 URxvt.termName:    rxvt-256color
 
-URxvt.perl-ext-common:     clipboard,font-size
-URxvt.clipboard.autocopy:  true
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger:  C-Up
+URxvt.perl-ext-common: selection-to-clipboard,xim-onthespot,font-size
+URxvt.inputMethod:     ibus
+URxvt.preeditType:     OnTheSpot
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
 
 URxvt.foreground: snow
 URxvt.background: black
