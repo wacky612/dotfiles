@@ -7,3 +7,4 @@
   with_items:
     - '~/.config/systemd'
     - '~/.config/systemd/user'
+    - '~/.config/environment.d'
