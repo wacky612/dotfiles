@@ -4,6 +4,11 @@
     src: zshrc.d/openssh
     dest: ~/.config/zsh/.zshrc.d/openssh
 
+- name: install ~/.config/environment.d/ssh_auth_sock.conf
+  copy:
+    src: systemd/ssh_auth_sock.conf
+    dest: ~/.config/environment.d/ssh_auth_sock.conf
+
 - name: install ssh-agent service
   copy:
     src: systemd/ssh-agent.service
