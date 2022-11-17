@@ -1,6 +1,15 @@
 function tmux() {
-  if [ -z $TMUX ]; then
+  if [ $SSH_AUTH_SOCK != $XDG_RUNTIME_DIR/ssh-agent.tmux ]; then
     ln -sf $SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.tmux
   fi
-  SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.tmux /usr/bin/tmux -2 -f $XDG_CONFIG_HOME/tmux/tmux.conf $@
+
+  if [ $# -eq 0 ]; then
+    if /usr/bin/tmux list-sessions | /bin/grep ^0: > /dev/null; then
+      /usr/bin/tmux -2 attach-session -t0
+    else
+      /usr/bin/tmux -2 new-session -s0
+    fi
+  else
+    /usr/bin/tmux -2 $@
+  fi
 }
