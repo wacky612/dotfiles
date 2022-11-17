@@ -14,3 +14,8 @@
   copy:
     src: profile
     dest: ~/.profile
+
+- name: install ~/.config/environment.d/xdg.conf
+  copy:
+    src: xdg.conf
+    dest: '~/.config/environment.d/xdg.conf'
