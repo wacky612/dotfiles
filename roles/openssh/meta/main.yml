@@ -1,4 +1,4 @@
 ---
 dependencies:
+  - { role: xdg+systemd }
   - { role: zsh }
-  - { role: systemd }

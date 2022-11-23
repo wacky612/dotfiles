@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - { role: xdg }
+  - { role: xdg+systemd }
   - { role: xresources }
