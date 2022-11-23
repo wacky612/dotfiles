@@ -1,0 +1,11 @@
+---
+- name: create ~/.config/wofi directory
+  file:
+    path: ~/.config/wofi
+    mode: 0755
+    state: directory
+
+- name: install ~/.config/wofi/style.css
+  copy:
+    src: style.css
+    dest: ~/.config/wofi/style.css

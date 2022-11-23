@@ -1,0 +1,36 @@
+* {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: white;
+}
+
+#window {
+    margin: 0px;
+    border: none;
+    background-color: rgba(32, 32, 112, 0.8);
+}
+
+#input {
+    margin: 5px;
+    border: none;
+    background-color: rgba(64, 64, 64, 0.8);
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+}
+
+#entry:selected {
+    background-color: rgba(0, 176, 128, 0.8);
+}
