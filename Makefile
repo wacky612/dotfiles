@@ -1,12 +1,4 @@
-export PATH := .venv/bin:$(PATH)
-
-.PHONY: prepare cmd
-
-prepare: .venv
-
-.venv:
-	python -m venv .venv
-	pip install ansible
+.PHONY: cmd x
 
 cmd:
 	ansible-playbook --diff cmd.yml
