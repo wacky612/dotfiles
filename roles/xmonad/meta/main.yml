@@ -1,4 +1,0 @@
----
-dependencies:
-  - { role: xdg+systemd }
-  - { role: xresources }
