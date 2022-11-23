@@ -1,0 +1,11 @@
+---
+- name: create ~/.config/swaylock directory
+  file:
+    path: ~/.config/swaylock
+    mode: 0755
+    state: directory
+
+- name: install ~/.config/swaylock/config
+  copy:
+    src: config
+    dest: ~/.config/swaylock/config
