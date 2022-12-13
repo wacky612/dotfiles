@@ -1,0 +1,72 @@
+[{
+    "layer": "top",
+    "output": "HDMI-A-2",
+    "height": 28,
+    "spacing": 0,
+
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": [
+        "cpu", "memory", "temperature",
+        "tray", "pulseaudio",
+        "clock"
+    ],
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "min-length": 6,
+        "align": 1,
+        "states": {
+            "warning": 50,
+            "critical": 80
+        },
+        "interval": 1
+    },
+    "memory": {
+        "format": "{}% ",
+        "states": {
+            "warning": 50,
+            "critical": 80
+        },
+        "interval": 1
+    },
+    "temperature": {
+        "format": "{temperatureC}℃ {icon}",
+        "format-icons": ["", "", ""],
+        "critical-threshold": 80,
+        "interval": 1
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "interval": 1
+    },
+    "clock": {
+        "format": "{:%Y/%m/%d %H:%M:%S}",
+        "interval": 1
+    },
+}, {
+    "layer": "top",
+    "output": "HDMI-A-1",
+    "height": 28,
+    "spacing": 0,
+
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["clock"],
+
+    "clock": {
+        "format": "{:%Y/%m/%d %H:%M:%S}",
+        "interval": 1
+    },
+}]

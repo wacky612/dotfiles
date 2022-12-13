@@ -1,0 +1,16 @@
+---
+- name: create ~/.config/waybar directory
+  file:
+    path: ~/.config/waybar
+    mode: 0755
+    state: directory
+
+- name: install ~/.config/waybar/style.css
+  copy:
+    src: style.css
+    dest: ~/.config/waybar/style.css
+
+- name: install ~/.config/waybar/config
+  copy:
+    src: "config/{{ ansible_hostname }}"
+    dest: ~/.config/waybar/config
