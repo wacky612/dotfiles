@@ -1,3 +1,5 @@
 [user]
 	email = wacky612@gmail.com
 	name = wacky
+[core]
+	editor = nano
