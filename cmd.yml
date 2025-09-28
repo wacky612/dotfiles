@@ -4,6 +4,7 @@
   roles:
     - git
     - tig
+    - nano
     - tmux
     - emacs
     - openssh

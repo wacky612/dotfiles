@@ -1,0 +1,11 @@
+---
+- name: create ~/.config/nano directory
+  file:
+    path: ~/.config/nano
+    mode: 0755
+    state: directory
+
+- name: install nanorc
+  copy:
+    src: nanorc
+    dest: ~/.config/nano/nanorc
