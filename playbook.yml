@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - git
+    - tig
+    - nano
+    - tmux
+    - emacs
+    - openssh

@@ -1,0 +1,7 @@
+setopt auto_pushd
+setopt list_packed
+autoload -U compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:processes' command 'ps o pid,args xf'
+zstyle ':completion:*:processes' sort false

@@ -1,0 +1,14 @@
+function isInWinDir {
+  if uname -r | grep -qi 'microsoft'; then
+    case $(readlink -f $PWD) in
+      /mnt/*)
+        return $(true)
+        ;;
+      *)
+        return $(false)
+        ;;
+    esac
+  else
+    return $(false)
+  fi
+}

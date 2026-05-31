@@ -1,0 +1,12 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task --list-all
+  check:
+    cmds:
+      - uv run ansible-playbook --check --diff playbook.yml
+  deploy:
+    cmds:
+      - uv run ansible-playbook --diff playbook.yml

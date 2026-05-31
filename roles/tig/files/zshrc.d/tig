@@ -1,0 +1,7 @@
+function tig {
+  if isInWinDir; then
+    /mnt/c/Program\ Files/Git/cmd/tig.exe "$@"
+  else
+    /usr/bin/tig "$@"
+  fi
+}

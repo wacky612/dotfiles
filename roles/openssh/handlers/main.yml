@@ -1,0 +1,6 @@
+---
+- name: restart ssh-agent
+  systemd:
+    name: ssh-anget
+    scope: user
+    state: restarted

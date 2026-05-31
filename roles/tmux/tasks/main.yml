@@ -1,0 +1,27 @@
+---
+- name: create ~/.config/tmux directory
+  file:
+    path: ~/.config/tmux
+    mode: 0755
+    state: directory
+
+- name: install tmux.conf
+  copy:
+    src: tmux.conf
+    dest: ~/.config/tmux/tmux.conf
+
+- name: install .zshrc.d/tmux
+  copy:
+    src: zshrc.d/tmux
+    dest: ~/.config/zsh/.zshrc.d/tmux
+
+- name: install tmux service
+  copy:
+    src: systemd/tmux.service
+    dest: ~/.config/systemd/user/tmux.service
+
+- name: enable tmux service
+  systemd:
+    name: tmux
+    scope: user
+    enabled: yes
