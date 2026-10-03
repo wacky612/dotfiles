@@ -12,6 +12,7 @@
     - ~/.cache
     - ~/.local
     - ~/.local/share
+    - ~/.local/opt
 
 - name: install ~/.profile
   copy:
