@@ -1,0 +1,34 @@
+---
+- name: create ~/.config/opencode directory
+  file:
+    path: ~/.config/opencode
+    mode: 0755
+    state: directory
+
+- name: install opencode.jsonc
+  copy:
+    src: opencode.jsonc
+    dest: ~/.config/opencode/opencode.jsonc
+
+- name: install cli.json
+  copy:
+    src: cli.json
+    dest: ~/.config/opencode/cli.json
+    mode: "0600"
+
+- name: create ~/.local/opt/mcp directory
+  file:
+    path: ~/.local/opt/mcp
+    mode: 0755
+    state: directory
+
+- name: install mcp/comfy
+  copy:
+    src: mcp/comfy/
+    dest: ~/.local/opt/mcp/comfy/
+  notify: sync mcp/comfy venv
+
+- name: install .zshrc.d/opencode
+  copy:
+    src: zshrc.d/opencode
+    dest: ~/.config/zsh/.zshrc.d/opencode

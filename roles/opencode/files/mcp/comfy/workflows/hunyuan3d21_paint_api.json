@@ -1,0 +1,113 @@
+{
+  "3": {
+    "inputs": {
+      "camera_azimuths": "0, 90, 180, 270, 0, 180",
+      "camera_elevations": "0, 0, 0, 0, 90, -90",
+      "view_weights": "1, 0.1, 0.5, 0.1, 0.05, 0.05",
+      "ortho_scale": 1
+    },
+    "class_type": "Hy3D21CameraConfig",
+    "_meta": {
+      "title": "Hunyuan 3D 2.1 Camera Config"
+    }
+  },
+  "4": {
+    "inputs": {
+      "paint_model": "hunyuan3d-paintpbr-v2-1",
+      "view_size": 512,
+      "steps": 10,
+      "guidance_scale": 3,
+      "texture_size": 1024,
+      "unwrap_mesh": true,
+      "seed": 105081994403404,
+      "diffusion_backend": "pytorch",
+      "trimesh": [
+        "8",
+        0
+      ],
+      "camera_config": [
+        "3",
+        0
+      ],
+      "image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "Hy3DMultiViewsGenerator",
+    "_meta": {
+      "title": "Hunyuan 3D 2.1 MultiViews Generator"
+    }
+  },
+  "5": {
+    "inputs": {
+      "image": "TreasureChest.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "画像を読み込む"
+    }
+  },
+  "6": {
+    "inputs": {
+      "pipeline": [
+        "4",
+        0
+      ],
+      "camera_config": [
+        "4",
+        5
+      ],
+      "albedo": [
+        "4",
+        1
+      ],
+      "mr": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "Hy3DBakeMultiViews",
+    "_meta": {
+      "title": "Hunyuan 3D 2.1 Bake MultiViews"
+    }
+  },
+  "7": {
+    "inputs": {
+      "output_mesh_name": "painted_model",
+      "pipeline": [
+        "6",
+        0
+      ],
+      "albedo": [
+        "6",
+        1
+      ],
+      "albedo_mask": [
+        "6",
+        2
+      ],
+      "mr": [
+        "6",
+        3
+      ],
+      "mr_mask": [
+        "6",
+        4
+      ]
+    },
+    "class_type": "Hy3DInPaint",
+    "_meta": {
+      "title": "Hunyuan 3D 2.1 InPaint"
+    }
+  },
+  "8": {
+    "inputs": {
+      "mesh_path": "3d/TreasureChest.glb"
+    },
+    "class_type": "MeshToolsLoad",
+    "_meta": {
+      "title": "MeshTools Load Mesh"
+    }
+  }
+}

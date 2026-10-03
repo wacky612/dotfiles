@@ -1,0 +1,77 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "model": "qwen38/Qwen3.8-27B",
+
+  "experimental": {
+    "mcp_timeout": 600000
+  },
+
+  "provider": {
+    "qwen38": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Local vLLM (Qwen3.8 27B)",
+
+      "options": {
+        "baseURL": "http://qwen38.i.wacky612.net/v1"
+      },
+
+      "models": {
+        "Qwen3.8-27B": {
+          "name": "Qwen3.8 27B",
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "compatibility": {
+            "reasoningField": "reasoning_content"
+          }
+        }
+      }
+    }
+  },
+
+  "mcp": {
+    "searxng": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "--from",
+        "git+https://github.com/88plug/searxng-mcp",
+        "searxng-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "SEARXNG_MCP_BASE_URL": "http://searxng.i.wacky612.net",
+        "SEARXNG_MCP_TRANSPORT": "stdio",
+        "SEARXNG_MCP_CACHE_DIR": "/tmp/searxng-mcp"
+      }
+    },
+
+    "blender": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "--from",
+        "git+https://projects.blender.org/lab/blender_mcp.git#subdirectory=mcp",
+        "blender-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "BLENDER_MCP_HOST": "127.0.0.1",
+        "BLENDER_MCP_PORT": "9876"
+      }
+    },
+
+    "comfy": {
+      "type": "local",
+      "command": [
+        "/home/wacky/.local/opt/mcp/comfy/.venv/bin/comfy"
+      ],
+      "enabled": true,
+      "environment": {
+        "COMFYUI_URL": "http://comfyui.i.wacky612.net:80"
+      }
+    }
+  }
+}

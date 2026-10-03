@@ -1,0 +1,19 @@
+[project]
+name = "comfy"
+version = "0.1.0"
+description = "Minimal MCP wrapper for fixed Qwen-Image-2.1 ComfyUI workflows"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.28,<1",
+  "mcp>=2,<3",
+]
+
+[project.scripts]
+comfy = "comfy:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/comfy.py"]

@@ -1,0 +1,5 @@
+---
+- name: sync mcp/comfy venv
+  command: uv sync --frozen
+  args:
+    chdir: ~/.local/opt/mcp/comfy

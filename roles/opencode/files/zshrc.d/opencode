@@ -1,0 +1,16 @@
+function opencode() {
+  bwrap \
+    --ro-bind / / \
+    --bind "$PWD" "$PWD" \
+    --bind "$HOME/.cache/uv" "$HOME/.cache/uv" \
+    --bind "$HOME/.local/share/uv" "$HOME/.local/share/uv" \
+    --bind "$HOME/.cache/opencode" "$HOME/.cache/opencode" \
+    --bind "$HOME/.local/share/opencode" "$HOME/.local/share/opencode" \
+    --bind "$HOME/.local/state/opencode" "$HOME/.local/state/opencode" \
+    --dev /dev \
+    --proc /proc \
+    --tmpfs /tmp \
+    --die-with-parent \
+    --new-session \
+    $(whence -p opencode) --standalone "$@"
+}
